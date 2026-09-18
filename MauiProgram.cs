@@ -1,6 +1,7 @@
 ﻿using AppMobileChuckNorris.Services;
 using AppMobileChuckNorris.ViewModels;
 using Microsoft.Extensions.Logging;
+using AppMobileChuckNorris.Views;
 
 namespace AppMobileChuckNorris
 {
@@ -25,6 +26,10 @@ namespace AppMobileChuckNorris
             builder.Services.AddSingleton<IChuckService, ChuckService>();
             builder.Services.AddTransient<ChuckNorrisViewModel>();
             builder.Services.AddTransient<MainPage>();
+            builder.Services.AddSingleton<IHarryPoterService, HarryPoterService>();
+            builder.Services.AddTransient<PotterViewModel>();
+            builder.Services.AddTransient<PotterPage>();
+
 
             return builder.Build();
         }
