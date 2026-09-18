@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:AppMobileChuckNorris.ViewModels"
+             x:Class="AppMobileChuckNorris.MainPage"
+             x:DataType="viewmodels:ChuckNorrisViewModel"
+             Title="Chuck Norris piadas">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+
+            <Image Source="{Binding IconUrl}"
+                   WidthRequest="100"
+                   HeightRequest="100"
+                   HorizontalOptions="Center" />
+
+            <ActivityIndicator IsRunning="{Binding IsLoading}"
+                               IsVisible="{Binding IsLoading}"
+                               HorizontalOptions="Center" />
+
+            <Frame BorderColor="#CCCCCC" Padding="20" CornerRadius="10">
+                <Label Text="{Binding JokeText}"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Frame>
+
+            <Button Text="Gerar Nova Piada"
+            Command="{Binding FetchJokeCommand}"
+            IsEnabled="True"
+            BackgroundColor="#512BD4"
+            TextColor="White" />    
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
